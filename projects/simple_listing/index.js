@@ -36,10 +36,11 @@ inputArea.appendChild(createSubmitBtn)
 // create list area
 let createListArea = document.createElement('div')
 createListArea.id = 'list-area'
+createListArea.style.display = 'none'
 main.appendChild(createListArea)
 
 
-// create list item
+// create list items
 let listArea = document.getElementById('list-area')
 let createList = document.createElement('ul')
 createList.id = 'item-list'
@@ -67,14 +68,16 @@ function createAListItem(value){
     })
 }
 
-
-
-
 // Enter keypress event listener
 let inputField = document.getElementById('input-field')
+let visibility = false
 inputField.addEventListener('keypress', (e) => {
     let value = e.target.value
     if(e.key === 'Enter' && value !== ''){
+        if(!visibility){
+            createListArea.style.display = 'flex'
+            visibility = true
+        }
         createAListItem(value)
         e.target.value = ''
     }
@@ -85,7 +88,39 @@ let submit = document.getElementById('add')
 submit.addEventListener('click', (e) => {
     let value = inputField.value
     if( value !== ''){
+        if(!visibility){
+            createListArea.style.display = 'flex'
+            visibility = true
+        }
         createAListItem(value)
         inputField.value = ''
     }
 })
+
+
+// clear list area
+let creatClearBtn = document.createElement('button')
+creatClearBtn.id = 'clear-btn'
+creatClearBtn.innerText = 'clear all'
+listArea.appendChild(creatClearBtn) 
+
+let allItems = document.querySelectorAll('.list-item')
+
+creatClearBtn.addEventListener('click', () => {
+    createListArea.style.display = 'none'
+    visibility = false
+    for(let i = 0; i < allItems.length; i++){
+        itemList.removeChild(allItems[i])
+    }
+})
+
+
+// last cross button will remove the list area
+// if(allItems.length <= 1){
+//     let lastCross = document.querySelector('.cross')
+//     lastCross.addEventListener('click', () => {
+//         createListArea.style.display = 'none'
+//         visibility = false
+//     })
+// }
+

@@ -38,6 +38,8 @@ body{
     padding: 30px;
     margin-top: 60px;
     color: #efefef;
+    display: flex;
+    flex-direction: column;
 }
 
 #list-area ul {
@@ -65,5 +67,20 @@ body{
 .list-item .cross:hover {
     background-color: #ff0000;
     border-color: #ff0000;
+    cursor: pointer;
+}
+
+#clear-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+}
+#clear-btn:hover{
+    background-color: #ffffff;
     cursor: pointer;
 }
