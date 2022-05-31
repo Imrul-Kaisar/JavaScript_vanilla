@@ -62,3 +62,4 @@ var bl2 = Number(false)
 console.log('\n bl1 will return ' + bl1 + ' and type of bl1 is ' + typeof(bl1))
 console.log('\n bl2 will return ' + bl2 + ' and type of bl1 is ' + typeof(bl2))
 
+Number.
